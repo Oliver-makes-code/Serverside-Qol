@@ -7,9 +7,7 @@ import net.minecraft.core.component.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,9 +20,19 @@ public class DefaultComponentModification {
 
     public static Map<String, Integer> stackSizeMap = null;
 
-    private static Map<String, Integer> load() throws FileNotFoundException {
+    private static Map<String, Integer> load() throws IOException {
         if (stackSizeMap != null)
             return stackSizeMap;
+
+        if (!STACK_SIZE_FILE.exists()) {
+            STACK_SIZE_FILE.getParentFile().mkdirs();
+
+            try (InputStream in = DefaultComponentModification.class.getResourceAsStream("/fatstack/stack_sizes.json")) {
+                try (OutputStream out = new FileOutputStream(STACK_SIZE_FILE)) {
+                    out.write(in.readAllBytes());
+                }
+            }
+        }
 
         var object = GSON.fromJson(new FileReader(STACK_SIZE_FILE), JsonObject.class);
 
@@ -92,7 +100,7 @@ public class DefaultComponentModification {
                 builder.set(DataComponents.MAX_STACK_SIZE, map.get(pathKey));
 
             PATCH_MAP.put(itemKey, builder.toPatch());
-        } catch (FileNotFoundException ignored) {}
+        } catch (IOException ignored) {}
     }
 
     public record Builder(DataComponentPatch.Builder patch, DataComponentMap.Builder components) {

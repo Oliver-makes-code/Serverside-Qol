@@ -11,7 +11,7 @@
 		"homepage": "https://olivermakesco.de/",
 		"sources": "https://github.com/Oliver-makes-code/duely"
 	},
-	"license": "CC0-1.0",
+	"license": "MPL",
 	"icon": "assets/duely/icon.png",
 	"environment": "*",
 	"entrypoints": {

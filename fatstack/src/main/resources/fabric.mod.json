@@ -11,8 +11,9 @@
     "homepage": "https://olivermakesco.de/",
     "sources": "https://github.com/Oliver-makes-code/duely"
   },
-  "license": "CC0-1.0",
+  "license": "MPL",
   "environment": "*",
+  "icon": "assets/fatstack/icon.png",
   "entrypoints": {
     "main": [
       "gay.vulpines.fatstack.FatStack"
