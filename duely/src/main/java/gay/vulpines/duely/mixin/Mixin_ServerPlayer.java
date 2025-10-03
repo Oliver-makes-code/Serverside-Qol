@@ -1,8 +1,8 @@
-package de.olivermakesco.mixin;
+package gay.vulpines.duely.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import de.olivermakesco.PlayerConfigAttachment;
+import gay.vulpines.duely.PlayerConfigAttachment;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;

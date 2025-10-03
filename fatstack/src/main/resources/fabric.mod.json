@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "fatstack",
+  "version": "${version}",
+  "name": "Fat Stack",
+  "description": "Increases the default stack size of many items",
+  "authors": [
+    "Octal"
+  ],
+  "contact": {
+    "homepage": "https://olivermakesco.de/",
+    "sources": "https://github.com/Oliver-makes-code/duely"
+  },
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.vulpines.fatstack.FatStack"
+    ]
+  },
+  "mixins": [
+    "fatstack.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "1.21.x",
+    "fabric-api": "*"
+  }
+}

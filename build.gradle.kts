@@ -6,13 +6,14 @@ plugins {
 }
 
 val versions = mapOf(
-    "duely" to "1.0.2"
+    "duely" to "1.0.3",
+	"fatstack" to "0.1.0"
 )
 
 subprojects {
     apply(plugin = "fabric-loom")
     version = versions[name]!!
-    group = "de.olivermakesco"
+    group = "gay.vulpines"
 
     base.archivesName = name
     val loom = project.extensions.getByName<LoomGradleExtensionAPI>("loom");

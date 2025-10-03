@@ -1,4 +1,4 @@
-package de.olivermakesco;
+package gay.vulpines.duely;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

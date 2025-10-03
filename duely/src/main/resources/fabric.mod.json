@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"de.olivermakesco.Duely"
+			"gay.vulpines.duely.Duely"
 		]
 	},
 	"mixins": [

@@ -1,4 +1,4 @@
-package de.olivermakesco;
+package gay.vulpines.duely;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -6,8 +6,6 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.resources.ResourceLocation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Duely implements ModInitializer {
     public static final String MODID = "duely";

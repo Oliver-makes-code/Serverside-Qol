@@ -1,11 +1,10 @@
 {
 	"required": true,
-	"package": "gay.vulpines.duely.mixin",
+	"package": "gay.vulpines.fatstack.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"Accessor_CommandSourceStack",
-		"Mixin_Player",
-		"Mixin_ServerPlayer"
+		"Mixin_Item_Properties",
+		"Mixin_ItemStack_SteamCodec"
 	],
 	"injectors": {
 		"defaultRequire": 1

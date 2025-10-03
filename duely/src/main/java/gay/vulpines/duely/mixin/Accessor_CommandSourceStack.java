@@ -1,4 +1,4 @@
-package de.olivermakesco.mixin;
+package gay.vulpines.duely.mixin;
 
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
