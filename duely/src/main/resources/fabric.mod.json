@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "duely",
+	"version": "${version}",
+	"name": "Duely",
+	"description": "Serverside consent-based PVP!",
+	"authors": [
+		"Octal"
+	],
+	"contact": {
+		"homepage": "https://olivermakesco.de/",
+		"sources": "https://github.com/Oliver-makes-code/duely"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/duely/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"de.olivermakesco.Duely"
+		]
+	},
+	"mixins": [
+		"duely.mixins.json"
+	],
+	"depends": {
+		"minecraft": "1.21.x",
+		"fabric-api": "*"
+	}
+}
