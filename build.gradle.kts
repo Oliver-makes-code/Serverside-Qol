@@ -5,15 +5,9 @@ plugins {
     alias(libs.plugins.loom) apply false
 }
 
-val versions = mapOf(
-    "duely" to "1.0.3",
-	"fatstack" to "0.1.0",
-	"harvester" to "0.1.0"
-)
-
 subprojects {
     apply(plugin = "fabric-loom")
-    version = versions[name]!!
+    version = rootProject.properties["version"]!!
     group = "gay.vulpines"
 
     base.archivesName = name

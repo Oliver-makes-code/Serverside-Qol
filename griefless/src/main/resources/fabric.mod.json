@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "fatstack",
+  "id": "griefless",
   "version": "${version}",
-  "name": "Fat Stack",
-  "description": "Increases the default stack size of many items",
+  "name": "Griefless",
+  "description": "Settings to make mob griefing more configurable",
   "authors": [
     "Octal"
   ],
@@ -13,15 +13,11 @@
   },
   "license": "MPL",
   "environment": "*",
-  "icon": "assets/fatstack/icon.png",
   "entrypoints": {
     "main": [
-      "gay.vulpines.fatstack.FatStack"
+      "gay.vulpines.griefless.Griefless"
     ]
   },
-  "mixins": [
-    "fatstack.mixins.json"
-  ],
   "depends": {
     "minecraft": "1.21.x",
     "fabric-api": "*"

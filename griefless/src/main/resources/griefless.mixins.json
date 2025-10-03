@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "gay.vulpines.griefless.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"Mixin_EnderMan_EndermanTakeBlockGoal",
+		"Mixin_ServerLevel"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
