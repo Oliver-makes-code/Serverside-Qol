@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "harvester",
+  "version": "${version}",
+  "name": "Harvester",
+  "description": "Generic right click harvest mod",
+  "authors": [
+    "Octal"
+  ],
+  "contact": {
+    "homepage": "https://olivermakesco.de/",
+    "sources": "https://github.com/Oliver-makes-code/duely"
+  },
+  "license": "MPL",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.vulpines.harvester.Harvester"
+    ]
+  },
+  "depends": {
+    "minecraft": "1.21.x",
+    "fabric-api": "*"
+  }
+}

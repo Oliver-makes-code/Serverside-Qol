@@ -7,7 +7,8 @@ plugins {
 
 val versions = mapOf(
     "duely" to "1.0.3",
-	"fatstack" to "0.1.0"
+	"fatstack" to "0.1.0",
+	"harvester" to "0.1.0"
 )
 
 subprojects {
