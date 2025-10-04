@@ -43,3 +43,8 @@ jobs:
         with:
           name: griefless
           path: griefless/build/libs/
+      - name: capture build artifacts (chatproto)
+        uses: actions/upload-artifact@v4
+        with:
+          name: chatproto
+          path: chatproto/build/libs/

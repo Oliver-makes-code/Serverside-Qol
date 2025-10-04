@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "chatproto",
+	"version": "${version}",
+	"name": "ChatProto",
+	"description": "Chat messages for the Minecraft Server Management Protocol",
+	"authors": [
+		"Octal"
+	],
+	"contact": {
+		"homepage": "https://olivermakesco.de/",
+		"sources": "https://github.com/Oliver-makes-code/Serverside-Qol"
+	},
+	"license": "MPL",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"gay.vulpines.chatproto.ChatProto"
+		]
+	},
+	"depends": {
+		"minecraft": "1.21.x",
+		"fabric-api": "*"
+	}
+}
