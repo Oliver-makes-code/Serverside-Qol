@@ -23,13 +23,23 @@ jobs:
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
-      - name: capture build artifacts
+      - name: capture build artifacts (duely)
         uses: actions/upload-artifact@v4
         with:
-          name: Duely
+          name: duely
           path: duely/build/libs/
-      - name: capture build artifacts
+      - name: capture build artifacts (fatstack)
         uses: actions/upload-artifact@v4
         with:
-          name: Fatstack
+          name: fatstack
           path: fatstack/build/libs/
+      - name: capture build artifacts (harvester)
+        uses: actions/upload-artifact@v4
+        with:
+          name: harvester
+          path: harvester/build/libs/
+      - name: capture build artifacts (griefless)
+        uses: actions/upload-artifact@v4
+        with:
+          name: griefless
+          path: griefless/build/libs/
