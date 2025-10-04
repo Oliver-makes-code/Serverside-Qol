@@ -11,6 +11,7 @@
     "homepage": "https://olivermakesco.de/",
     "sources": "https://github.com/Oliver-makes-code/Serverside-Qol"
   },
+  "icon": "assets/harvester/icon.png",
   "license": "MPL",
   "environment": "*",
   "entrypoints": {

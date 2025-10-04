@@ -18,6 +18,10 @@
 			"gay.vulpines.chatproto.ChatProto"
 		]
 	},
+	"icon": "assets/chatproto/icon.png",
+	"mixins": [
+		"chatproto.mixins.json"
+	],
 	"depends": {
 		"minecraft": "1.21.x",
 		"fabric-api": "*"

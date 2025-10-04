@@ -18,6 +18,10 @@
       "gay.vulpines.griefless.Griefless"
     ]
   },
+  "icon": "assets/griefless/icon.png",
+  "mixins": [
+    "griefless.mixins.json"
+  ],
   "depends": {
     "minecraft": "1.21.x",
     "fabric-api": "*"
