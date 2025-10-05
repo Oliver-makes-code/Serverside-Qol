@@ -7,8 +7,8 @@ import net.minecraft.world.level.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(targets = {"net.minecraft.world.entity.monster.EnderMan.EndermanTakeBlockGoal"})
-public class Mixin_EnderMan_EndermanTakeBlockGoal {
+@Mixin(targets = "net.minecraft.world.entity.monster.Silverfish.SilverfishMergeWithStoneGoal")
+public class Mixin_Silverfish_SilverfishMergeWithStoneGoal {
     @WrapOperation(
             method = "canUse",
             at = @At(
@@ -16,9 +16,9 @@ public class Mixin_EnderMan_EndermanTakeBlockGoal {
                     target = "Lnet/minecraft/world/level/GameRules;getBoolean(Lnet/minecraft/world/level/GameRules$Key;)Z"
             )
     )
-    private boolean replaceMobGriefing(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
-        if (instance.getBoolean(Griefless.ENDERMEN_PICK_UP_BLOCKS))
-            return false;
-        return original.call(instance, key);
+    boolean replaceMobGriefing(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
+        if (instance.getBoolean(Griefless.SILVERFISH_INFEST_STONE))
+            return original.call(instance, key);
+        return false;
     }
 }

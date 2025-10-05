@@ -1,15 +1,47 @@
 {
-	"required": true,
-	"package": "gay.vulpines.griefless.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"Mixin_EnderMan_EndermanTakeBlockGoal",
-		"Mixin_ServerLevel"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "gay.vulpines.griefless.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "Mixin_Allay",
+    "Mixin_ArmorStand",
+    "Mixin_BlockAttachedEntity",
+    "Mixin_BreakDoorGoal",
+    "Mixin_CropBlock",
+    "Mixin_EatBlockGoal",
+    "Mixin_EnderDragon",
+    "Mixin_EnderMan_EndermanLeaveBlockGoal",
+    "Mixin_EnderMan_EndermanTakeBlockGoal",
+    "Mixin_Evoker_EvokerWololoSpellGoal",
+    "Mixin_FarmBlock",
+    "Mixin_Fox_EatBerriesGoal",
+    "Mixin_GoatAi",
+    "Mixin_HarvestFarmland",
+    "Mixin_ItemEntity",
+    "Mixin_LargeFireball",
+    "Mixin_LivingEntity",
+    "Mixin_Mob",
+    "Mixin_Piglin",
+    "Mixin_PowderSnowBlock",
+    "Mixin_Projectile",
+    "Mixin_Rabbit_RaidGardenGoal",
+    "Mixin_Ravager",
+    "Mixin_RemoveBlockGoal",
+    "Mixin_ServerExplosion",
+    "Mixin_ServerLevel",
+    "Mixin_Silverfish_SilverfishMergeWithStoneGoal",
+    "Mixin_Silverfish_SilverfishWakeUpFriendsGoal",
+    "Mixin_SmallFireball",
+    "Mixin_SnowGolem",
+    "Mixin_TurtleEggBlock",
+    "Mixin_VehicleEntity",
+    "Mixin_WeavingMobEffect",
+    "Mixin_WitherBoss"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }

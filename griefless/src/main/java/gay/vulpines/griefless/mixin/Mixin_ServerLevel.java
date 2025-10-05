@@ -20,8 +20,8 @@ public abstract class Mixin_ServerLevel {
                     target = "Lnet/minecraft/world/level/GameRules;getBoolean(Lnet/minecraft/world/level/GameRules$Key;)Z"
             )
     )
-    private boolean dontExplode(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
-        if (key == GameRules.RULE_MOBGRIEFING && !getGameRules().getBoolean(Griefless.CREEPERS_DESTROY_BLOCKS))
+    private boolean replaceMobGriefing(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
+        if (key == GameRules.RULE_MOBGRIEFING && !getGameRules().getBoolean(Griefless.MOBS_EXPLODE_BLOCKS))
             return false;
         return original.call(instance, key);
     }

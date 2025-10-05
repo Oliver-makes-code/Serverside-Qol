@@ -3,22 +3,23 @@ package gay.vulpines.griefless.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import gay.vulpines.griefless.Griefless;
+import net.minecraft.world.entity.ai.behavior.HarvestFarmland;
 import net.minecraft.world.level.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(targets = {"net.minecraft.world.entity.monster.EnderMan.EndermanTakeBlockGoal"})
-public class Mixin_EnderMan_EndermanTakeBlockGoal {
+@Mixin(HarvestFarmland.class)
+public class Mixin_HarvestFarmland {
     @WrapOperation(
-            method = "canUse",
+            method = "checkExtraStartConditions(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/npc/Villager;)Z",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/GameRules;getBoolean(Lnet/minecraft/world/level/GameRules$Key;)Z"
             )
     )
-    private boolean replaceMobGriefing(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
-        if (instance.getBoolean(Griefless.ENDERMEN_PICK_UP_BLOCKS))
-            return false;
-        return original.call(instance, key);
+    boolean replaceMobGriefing(GameRules instance, GameRules.Key<GameRules.BooleanValue> key, Operation<Boolean> original) {
+        if (instance.getBoolean(Griefless.VILLAGERS_HARVEST_FARMLAND))
+            return original.call(instance, key);
+        return false;
     }
 }
