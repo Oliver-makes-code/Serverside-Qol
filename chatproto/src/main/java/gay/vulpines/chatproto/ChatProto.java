@@ -2,6 +2,7 @@ package gay.vulpines.chatproto;
 
 import com.mojang.serialization.Codec;
 import gay.vulpines.chatproto.mixin.Accessor_JsonRpcNotificationService;
+import gay.vulpines.chatproto.mixin.Accessor_NotificationManager;
 import gay.vulpines.chatproto.mixin.Accessor_OutgoingRpcMethod_OutgoingRpcMethodBuilder;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.message.v1.ServerMessageEvents;
@@ -12,9 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.jsonrpc.OutgoingRpcMethod;
 import net.minecraft.server.jsonrpc.api.ParamInfo;
 import net.minecraft.server.jsonrpc.api.PlayerDto;
-import net.minecraft.server.jsonrpc.api.Schema;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.notifications.NotificationManager;
 
 import java.util.function.Consumer;
 
@@ -25,8 +24,7 @@ public class ChatProto implements ModInitializer {
             PlayerChatMessageNotification.CODEC,
             ResourceLocation.fromNamespaceAndPath(MODID, "notification/chat_message"),
             it -> it
-                    .param(new ParamInfo("message", Schema.MESSAGE_SCHEMA.schema()))
-                    .param(new ParamInfo("player", Schema.PLAYER_SCHEMA.schema()))
+                    .param(new ParamInfo("message", PlayerChatMessageNotification.SCHEMA.schema()))
                     .description("Player sends a chat message")
     );
 
@@ -36,18 +34,20 @@ public class ChatProto implements ModInitializer {
     }
 
     public static void onMessage(PlayerChatMessage message, ServerPlayer player, ChatType.Bound bound) {
-        broadcastNotification(
-                player.level().getServer().notificationManager(),
-                PLAYER_CHAT_MESSAGE,
-                new PlayerChatMessageNotification(
-                        message.decoratedContent(),
-                        PlayerDto.from(player)
-                )
+        var manager = (Accessor_NotificationManager)player.level().getServer().notificationManager();
+        var notification = new PlayerChatMessageNotification(
+                message.decoratedContent().getString(),
+                PlayerDto.from(player)
         );
+
+        for (var service : manager.getNotificationServices()) {
+            if (service instanceof Accessor_JsonRpcNotificationService json)
+                broadcastNotification(json, PLAYER_CHAT_MESSAGE, notification);
+        }
     }
 
-    private static <T> void broadcastNotification(NotificationManager manager, Holder.Reference<? extends OutgoingRpcMethod<T, ?>> reference, T object) {
-        ((Accessor_JsonRpcNotificationService) manager).invokeBroadcastNotification(reference, object);
+    private static <T> void broadcastNotification(Accessor_JsonRpcNotificationService service, Holder.Reference<? extends OutgoingRpcMethod<T, ?>> reference, T object) {
+        service.invokeBroadcastNotification(reference, object);
     }
 
     @SuppressWarnings("unchecked")

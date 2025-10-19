@@ -6,6 +6,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import gay.vulpines.duely.duck.Duck_CommandSource;
 import gay.vulpines.duely.mixin.Accessor_CommandSourceStack;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
@@ -41,14 +42,16 @@ public class ModCommands {
 
         var player = context.getSource().getPlayerOrException();
 
-        if (source != player) {
+        boolean isPlayer = source instanceof Duck_CommandSource duck && duck.duely$isPlayer(player);
+
+        if (!isPlayer) {
             context.getSource().sendFailure(Component.literal("Cannot change the pvp value of anyone but yourself!"));
 
             if (source instanceof MinecraftServer)
                 context.getSource().getServer().getPlayerList().broadcastSystemMessage(Component.translatableWithFallback("", "Someone with console access tried to change the pvp status of %s. Shame.", player.getName()), false);
 
-            if (source instanceof ServerPlayer serverPlayer)
-                context.getSource().getServer().getPlayerList().broadcastSystemMessage(Component.translatableWithFallback("", "%s tried to change the pvp status of %s. Shame.", serverPlayer.getName(), player.getName()), false);
+            if ( source instanceof Duck_CommandSource duck)
+                context.getSource().getServer().getPlayerList().broadcastSystemMessage(Component.translatableWithFallback("", "%s tried to change the pvp status of %s. Shame.", duck.duely$getPlayer().getName(), player.getName()), false);
 
             return 1;
         }

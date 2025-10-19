@@ -1,15 +1,17 @@
 {
-	"required": true,
-	"package": "gay.vulpines.chatproto.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"Accessor_JsonRpcNotificationService",
-		"Accessor_OutgoingRpcMethod_OutgoingRpcMethodBuilder"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "gay.vulpines.chatproto.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "Accessor_JsonRpcNotificationService",
+    "Accessor_NotificationManager",
+    "Accessor_OutgoingRpcMethod_OutgoingRpcMethodBuilder",
+    "Accessor_Schema"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }
