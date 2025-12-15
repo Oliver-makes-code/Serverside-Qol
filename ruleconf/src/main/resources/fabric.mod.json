@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "ruleconf",
+  "version": "${version}",
+  "name": "RuleConf",
+  "description": "Global configurable gamerules",
+  "authors": [
+    "Octal"
+  ],
+  "contact": {
+    "homepage": "https://olivermakesco.de/",
+    "sources": "https://github.com/Oliver-makes-code/Serverside-Qol"
+  },
+  "icon": "assets/ruleconf/icon.png",
+  "license": "MPL",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.vulpines.ruleconf.RuleConf"
+    ]
+  },
+  "mixins": [
+    "ruleconf.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=1.21.9 <1.22.0",
+    "fabric-api": "*"
+  }
+}
