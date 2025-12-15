@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "durable",
+  "version": "${version}",
+  "name": "Durable",
+  "description": "Removes durability",
+  "authors": [
+    "Octal"
+  ],
+  "contact": {
+    "homepage": "https://olivermakesco.de/",
+    "sources": "https://github.com/Oliver-makes-code/Serverside-Qol"
+  },
+  "icon": "assets/durable/icon.png",
+  "license": "MPL",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.vulpines.durable.Durable"
+    ]
+  },
+  "mixins": [
+    "durable.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=1.21.9 <1.22.0",
+    "fabric-api": "*"
+  }
+}

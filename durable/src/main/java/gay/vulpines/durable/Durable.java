@@ -1,8 +1,8 @@
-package gay.vulpines.fatstack;
+package gay.vulpines.durable;
 
 import net.fabricmc.api.ModInitializer;
 
-public class FatStack implements ModInitializer {
+public class Durable implements ModInitializer {
     @Override
     public void onInitialize() {}
 }
