@@ -25,4 +25,12 @@ public abstract class Mixin_GameRules {
     private void modifyRules(Map<GameRules.Key<?>, GameRules.Value<?>> map, FeatureFlagSet featureFlagSet, CallbackInfo ci) {
         loadFromTag(new Dynamic<>(JsonOps.INSTANCE, RuleConf.getRuleMap()));
     }
+
+    @Inject(
+            method = "<init>(Lnet/minecraft/world/flag/FeatureFlagSet;Lcom/mojang/serialization/DynamicLike;)V",
+            at = @At("RETURN")
+    )
+    private void modifyRules(FeatureFlagSet featureFlagSet, DynamicLike<?> dynamicLike, CallbackInfo ci) {
+        loadFromTag(new Dynamic<>(JsonOps.INSTANCE, RuleConf.getRuleMap()));
+    }
 }
